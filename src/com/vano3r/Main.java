@@ -6,7 +6,6 @@ import java.util.Scanner;
 public class Main {
 
     private int numberDaysToTop; // Число дней, необходимое для достижения вершины
-    private int sizeGroup; // Число альпинистов в группе
     private ArrayList<Climber> groupClimbers;
 
 
@@ -20,6 +19,7 @@ public class Main {
     private void creationExpedition() {
         groupClimbers = new ArrayList<>();
         Scanner readLine = new Scanner(System.in);
+        int sizeGroup; // Число альпинистов в группе
 
         while (true) {
             System.out.print("Число дней, необходимое для достижения вершины: ");
@@ -56,8 +56,15 @@ public class Main {
         }
     }
 
+    // Восхождение на гору
     private void startExpedition() {
-        System.out.println(getCapacityResourcesForGroup(new int[]{1}));
+
+    }
+
+    /*Функция, которая для заданной группы альпинистов пытается составить расписание
+    восхождения, требующее менее ресурсов*/
+    private boolean planExpedition() {
+        return false;
     }
 
     //Вместимость ресурсов для указанных альпинистов в экспедиции
