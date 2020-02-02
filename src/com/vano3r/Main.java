@@ -13,6 +13,7 @@ public class Main {
     public static void main(String[] args) {
         Main main = new Main();
         main.creationExpedition();
+        main.startExpedition();
     }
 
     // Создание экспедиции
@@ -20,26 +21,24 @@ public class Main {
         groupClimbers = new ArrayList<>();
         Scanner readLine = new Scanner(System.in);
 
-        while (true){
+        while (true) {
             System.out.print("Число дней, необходимое для достижения вершины: ");
             numberDaysToTop = readLine.nextInt();
 
-            if (numberDaysToTop < 1 || numberDaysToTop > 100){
+            if (numberDaysToTop < 1 || numberDaysToTop > 100) {
                 System.out.println("Число дней должно находится в диапозоне от 1 до 100 !");
-            }
-            else {
+            } else {
                 break;
             }
         }
 
-        while (true){
+        while (true) {
             System.out.print("Число альпинистов в клубе: ");
             sizeGroup = readLine.nextInt();
 
-            if (sizeGroup < 1 || sizeGroup > 20){
+            if (sizeGroup < 1 || sizeGroup > 20) {
                 System.out.println("Число альпинистов должно находится в диапозоне от 1 до 20 !");
-            }
-            else {
+            } else {
                 break;
             }
         }
@@ -57,7 +56,25 @@ public class Main {
         }
     }
 
-    private void startExpedition(){
+    private void startExpedition() {
+        System.out.println(getCapacityResourcesForGroup(new int[]{1}));
+    }
 
+    //Вместимость ресурсов для указанных альпинистов в экспедиции
+    private int getCapacityResourcesForGroup(int[] numbersClimbers) {
+        int sum = 0;
+        for (int numberClimber : numbersClimbers) {
+            sum += groupClimbers.get(numberClimber).getCapacityResources();
+        }
+        return sum;
+    }
+
+    //Расход ресурсов для указанных альпинистов в экспедиции за день
+    private int getConsumptionResourcesForGroup(int[] numbersClimbers) {
+        int sum = 0;
+        for (int numberClimber : numbersClimbers) {
+            sum += groupClimbers.get(numberClimber).getConsumptionResources();
+        }
+        return sum;
     }
 }
