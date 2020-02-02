@@ -20,22 +20,44 @@ public class Main {
         groupClimbers = new ArrayList<>();
         Scanner readLine = new Scanner(System.in);
 
-        System.out.print("Число дней, необходимое для достижения вершины: ");
-        numberDaysToTop = readLine.nextInt();
+        while (true){
+            System.out.print("Число дней, необходимое для достижения вершины: ");
+            numberDaysToTop = readLine.nextInt();
 
-        System.out.print("Число альпинистов в клубе: ");
-        sizeGroup = readLine.nextInt();
+            if (numberDaysToTop < 1 || numberDaysToTop > 100){
+                System.out.println("Число дней должно находится в диапозоне от 1 до 100 !");
+            }
+            else {
+                break;
+            }
+        }
+
+        while (true){
+            System.out.print("Число альпинистов в клубе: ");
+            sizeGroup = readLine.nextInt();
+
+            if (sizeGroup < 1 || sizeGroup > 20){
+                System.out.println("Число альпинистов должно находится в диапозоне от 1 до 20 !");
+            }
+            else {
+                break;
+            }
+        }
 
         int numberInGroup = 1;
         while (numberInGroup <= sizeGroup) {
-            System.out.println(String.format("Максимальный ресурс для альпиниста %d: ", numberInGroup));
+            System.out.print(String.format("Максимальный ресурс для альпиниста %d: ", numberInGroup));
             int capacityResources = readLine.nextInt();
 
-            System.out.println(String.format("Ежедневный расход ресурса для альпиниста %d: ", numberInGroup));
+            System.out.print(String.format("Ежедневный расход ресурса для альпиниста %d: ", numberInGroup));
             int consumptionResources = readLine.nextInt();
 
             groupClimbers.add(new Climber(numberInGroup, capacityResources, consumptionResources));
             numberInGroup++;
         }
+    }
+
+    private void startExpedition(){
+
     }
 }
