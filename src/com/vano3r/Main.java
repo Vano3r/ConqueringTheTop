@@ -5,18 +5,16 @@ import java.util.Scanner;
 
 public class Main {
 
-    private int numberDaysToTop; // Число дней, необходимое для достижения вершины
-    private ArrayList<Climber> groupClimbers;
+    private static int numberDaysToTop; // Число дней, необходимое для достижения вершины
+    private static ArrayList<Climber> groupClimbers;
 
 
     public static void main(String[] args) {
-        Main main = new Main();
-        main.creationExpedition();
-        main.startExpedition();
+        creationExpedition();
     }
 
     // Создание экспедиции
-    private void creationExpedition() {
+    private static void creationExpedition() {
         groupClimbers = new ArrayList<>();
         Scanner readLine = new Scanner(System.in);
         int sizeGroup; // Число альпинистов в группе
